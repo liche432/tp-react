@@ -52,9 +52,9 @@ const App = () => {
             <button onClick = {onClickHandler}>Click Me</button>
             <Test myProps={myVar} updater={childToParentUpdater} /> {/*on appel notre components*/}
             {myVar}
-            {movies.map( (movie) => {
+            {movies.map( (movie, index) => { // quand on ne sait pas quoi mettre dans key on peut utiliser un autre paramètre index
                 console.log(movie);
-                return <Movie myTitle={movie.title} myDescription={movie.opening_crawl} />;
+                return <Movie key={index} myTitle={movie.title} myDescription={movie.opening_crawl} />;
             }) }
             
         </div>
