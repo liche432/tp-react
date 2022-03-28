@@ -54,7 +54,7 @@ const App = () => {
             {myVar}
             {movies.map( (movie) => {
                 console.log(movie);
-                return <Movie title={movie.title} />;
+                return <Movie myTitle={movie.title} />;
             }) }
             
         </div>
