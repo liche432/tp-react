@@ -62,3 +62,12 @@ const App = () => {
 }
 
 export default App;
+
+
+/* différence entre un import de module css et utilisation de class classique
+Le fait de renommer en machin.css, on pourra utiliser le css en fonction des ids
+
+
+
+avantages de bibliothèque de composant
+*/

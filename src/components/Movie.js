@@ -1,12 +1,13 @@
 import React from "react"
+import toto from './Movie.module.css'
 
 const Movie = (props) => {
     const {myTitle, title} = props;
     const {myDescription, opening_crawl} = props;
 
-    return <div>
+    return <div className={toto.bodyMovie}>
         <h3>{myTitle}</h3>
-        <p>{myDescription}</p>
+        <p className={toto.descriptionMovie}>{myDescription}</p>
     </div>;
 }
 

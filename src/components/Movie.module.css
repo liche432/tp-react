@@ -1,0 +1,13 @@
+.error{
+    background-color:red;
+}
+.descriptionMovie{
+    width: 50%;
+    text-align:center;
+}
+
+.bodyMovie{
+    text-align:center;
+    width: 50%;
+    border:1px solid;
+}
