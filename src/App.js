@@ -5,6 +5,9 @@ import Test from "./components/Test";
 
 const App = () => {
     const [myVar, setMyVar] = useState('Hello word') // permet de mettre a jour la vue (c'est un hook)
+    const [movies, setMovies] = useState([]);
+
+
     // let myVar = "hello world"
     const onClickHandler = () => {
         // console.log('clicked');
@@ -23,14 +26,6 @@ const App = () => {
         console.log('childToParentUpdater', data)
     }
 
-    useEffect(() => {
-        //document.title = myVar //on change le titre pour pouvoir toujours l'accès à onClickHandler a la fonction. Sinon, comme il n'y a aucun changement, on y a accès 1 fois
-        //console.log('useEffect');
-        fetchMoviesHandler();
-    }, []); // on l'utilise pour des appels http
-
-    const [movies, setMovies] = useState([]);
-
     function fetchMoviesHandler(){
         fetch('https://swapi.dev/api/films/') // on récupère des données de ce site
         .then(response => {
@@ -38,9 +33,17 @@ const App = () => {
             return response.json();
         }).then(data => {
             console.log(data);
+            setMovies(data.results);
         })
     }
 
+    useEffect(() => {
+        //document.title = myVar //on change le titre pour pouvoir toujours l'accès à onClickHandler a la fonction. Sinon, comme il n'y a aucun changement, on y a accès 1 fois
+        //console.log('useEffect');
+        fetchMoviesHandler();
+    }, [myVar]); // on l'utilise pour des appels http
+
+    
 
 
     return (
@@ -48,7 +51,7 @@ const App = () => {
             <button onClick = {onClickHandler}>Click Me</button>
             <Test myProps={myVar} updater={childToParentUpdater} /> {/*on appel notre components*/}
             {myVar}
-            {[<h1>1</h1>,2,4,5].map() /* affiche les élement répété */}
+            {[<h1>1</h1>,2,4,5]}
         </div>
     );
 }
