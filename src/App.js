@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from "react";
 import Test from "./components/Test";
+import Movie from "./components/Movie"
 
 const App = () => {
     const [myVar, setMyVar] = useState('Hello word') // permet de mettre a jour la vue (c'est un hook)
@@ -51,7 +52,11 @@ const App = () => {
             <button onClick = {onClickHandler}>Click Me</button>
             <Test myProps={myVar} updater={childToParentUpdater} /> {/*on appel notre components*/}
             {myVar}
-            {[<h1>1</h1>,2,4,5]}
+            {movies.map( (movie) => {
+                console.log(movie);
+                return <Movie title={movie.title} />;
+            }) }
+            
         </div>
     );
 }
