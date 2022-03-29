@@ -5,7 +5,10 @@ import Test from "./components/Test";
 import Movie from "./components/Movie"
 import toto from './components/Movie.module.css'
 
-// Commenté pour l'activité des routes
+//import TP route
+import { Outlet, Link } from "react-router-dom";
+
+// Commenté pour le TP des routes
 // const App = () => {
 //     const [myVar, setMyVar] = useState('Hello word') // permet de mettre a jour la vue (c'est un hook)
 //     const [movies, setMovies] = useState([]);
@@ -65,10 +68,21 @@ import toto from './components/Movie.module.css'
 //     );
 // }
 
+//Contenu TP route
 export default function App(){
     return (
         <div>
             <h1>Bookkeeper !</h1>
+            <nav
+                style={{
+                    borderBottom: "solid 1px",
+                    paddingBottom: "1rem",
+                }}
+            >
+                <Link to="/invoices">Invoices</Link> |{" "}
+                <Link to="/expenses">Expenses</Link>
+            </nav>
+            <Outlet /> {/* Permet la permutations  entre les 2 routes enfants */}
         </div>
     );
 };
