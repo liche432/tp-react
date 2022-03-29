@@ -2,12 +2,16 @@
     background-color:red;
 }
 .descriptionMovie{
-    width: 50%;
     text-align:center;
 }
 
 .bodyMovie{
-    text-align:center;
-    width: 50%;
     border:1px solid;
+    margin : 4px;
+    width: 50%;
+}
+.generalMovie{
+    display: flex;
+    padding: 4px;
+    text-align: center;
 }

@@ -3,6 +3,7 @@ import './App.css';
 import {useState, useEffect} from "react";
 import Test from "./components/Test";
 import Movie from "./components/Movie"
+import toto from './components/Movie.module.css'
 
 const App = () => {
     const [myVar, setMyVar] = useState('Hello word') // permet de mettre a jour la vue (c'est un hook)
@@ -52,10 +53,12 @@ const App = () => {
             <button onClick = {onClickHandler}>Click Me</button>
             <Test myProps={myVar} updater={childToParentUpdater} /> {/*on appel notre components*/}
             {myVar}
-            {movies.map( (movie, index) => { // quand on ne sait pas quoi mettre dans key on peut utiliser un autre paramètre index
-                console.log(movie);
-                return <Movie key={index} myTitle={movie.title} myDescription={movie.opening_crawl} />;
-            }) }
+            <div className={toto.generalMovie}>
+                {movies.map( (movie, index) => { // quand on ne sait pas quoi mettre dans key on peut utiliser un autre paramètre index
+                    console.log(movie);
+                    return <Movie key={index} myTitle={movie.title} myDescription={movie.opening_crawl} />;
+                }) }
+            </div>
             
         </div>
     );

@@ -8,7 +8,8 @@ const Movie = (props) => {
     return <div className={toto.bodyMovie}>
         <h3>{myTitle}</h3>
         <p className={toto.descriptionMovie}>{myDescription}</p>
-    </div>;
+    </div>
+    
 }
 
 export default Movie;
