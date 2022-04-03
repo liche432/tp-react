@@ -8,6 +8,10 @@ import toto from './components/Movie.module.css'
 //import TP route
 import { Outlet, Link } from "react-router-dom";
 
+// importe tp store
+import React from 'react';
+import Child from './components/Child';
+
 // Commenté pour le TP des routes
 // const App = () => {
 //     const [myVar, setMyVar] = useState('Hello word') // permet de mettre a jour la vue (c'est un hook)
@@ -68,24 +72,48 @@ import { Outlet, Link } from "react-router-dom";
 //     );
 // }
 
-//Contenu TP route
-export default function App(){
+//Tp store
+const App = () => {
+    const [name, setName] = React.useState({
+        lastName: 'fjhjfd',
+        name : 'gdjfgkdfg',
+        age : 42,
+        isMarried: false,
+        hobbies: ['coding', 'cooking', 'reading'],
+        status: {
+            isOnline: true,
+            lastLogin: '2020-01-01'
+        }
+    })
+
     return (
-        <div>
-            <h1>Bookkeeper !</h1>
-            <nav
-                style={{
-                    borderBottom: "solid 1px",
-                    paddingBottom: "1rem",
-                }}
-            >
-                <Link to="/invoices">Invoices</Link> |{" "}
-                <Link to="/expenses">Expenses</Link>
-            </nav>
-            <Outlet /> {/* Permet la permutations  entre les 2 routes enfants */}
+        <div className="App">
+            <Child />
         </div>
-    );
-};
+    )
+
+}
+
+export default App;
+
+//Contenu TP route
+// export default function App(){
+//     return (
+//         <div>
+//             <h1>Bookkeeper !</h1>
+//             <nav
+//                 style={{
+//                     borderBottom: "solid 1px",
+//                     paddingBottom: "1rem",
+//                 }}
+//             >
+//                 <Link to="/invoices">Invoices</Link> |{" "}
+//                 <Link to="/expenses">Expenses</Link>
+//             </nav>
+//             <Outlet /> {/* Permet la permutations  entre les 2 routes enfants */}
+//         </div>
+//     );
+// };
 
 
 /* différence entre un import de module css et utilisation de class classique

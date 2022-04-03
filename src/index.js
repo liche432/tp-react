@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MyContextProvider } from "./store/Store"
 
 // import tp route
 import { render } from "react-dom";
@@ -16,30 +17,32 @@ import Invoices from "./routes/invoices";
 import Invoice from "./routes/invoices";
 
 const rootElement = document.getElementById("root");
-render(
-    <BrowserRouter>
-        {/*On imbrique les routes*/}
-        <Routes>
-            <Route path="/" element={<App />}>
-                <Route path="expenses" element={<Expenses />} />
-                {/* On fait une route avec des données */}
-                <Route path="invoices" element={<Invoices />}>
-                    {/* :incoiceId est un ramètre d'URL */}
-                    <Route path=":invoiceId" element={<Invoice/>} />
-                </Route>
-                <Route
-                    path="*"
-                    element={
-                        <main style={{ pading: "1rem" }}>
-                            <p>There's nothing here</p>
-                        </main>
-                    }
-                />
-            </Route>
-        </Routes>
-    </BrowserRouter>,
-    rootElement
-);
+// TP route
+// render(
+//     // On gère les routes
+//     <BrowserRouter>
+//         {/*On imbrique les routes*/}
+//         <Routes>
+//             <Route path="/" element={<App />}>
+//                 <Route path="expenses" element={<Expenses />} />
+//                 {/* On fait une route avec des données */}
+//                 <Route path="invoices" element={<Invoices />}>
+//                     {/* :incoiceId est un ramètre d'URL */}
+//                     <Route path=":invoiceId" element={<Invoice/>} />
+//                 </Route>
+//                 <Route
+//                     path="*"
+//                     element={
+//                         <main style={{ pading: "1rem" }}>
+//                             <p>There's nothing here</p>
+//                         </main>
+//                     }
+//                 />
+//             </Route>
+//         </Routes>
+//     </BrowserRouter>,
+//     rootElement
+// );
 
 
 
@@ -49,12 +52,14 @@ render(
 
 
 
-/*ReactDOM.render(
+ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <React.StrictMode>
+          <App />
+      </React.StrictMode>
   </React.StrictMode>,
   document.getElementById('root')
-);*/
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
